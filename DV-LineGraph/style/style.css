@@ -1,0 +1,48 @@
+.m-path {
+    fill:slategray;
+    stroke:rgb(35, 42, 48);
+    stroke-width:2;    
+}
+
+.p-path {
+    fill:rgb(174, 174, 174);
+    stroke:rgb(35, 42, 48);
+    stroke-width:2;    
+}
+
+.m-vertical-line {
+    stroke:rgba(35, 42, 48, 0);
+    stroke-width:6; 
+}
+
+.p-vertical-line {
+    stroke:rgba(35, 42, 48, 0);
+    stroke-width:4; 
+}
+
+.m-tooltip {
+    fill: rgba(35, 42, 48, 0);
+}
+
+.p-tooltip {
+    fill: rgba(35, 42, 48, 0);
+}
+
+.m-label {
+    fill:rgba(0,0,255,0);
+    font-size: 10px;
+    text-align: center;
+    justify-content: center;
+}
+
+.p-label {
+    fill:rgba(0,0,255,0);
+    font-size: 10px;
+    text-align: center;
+    justify-content: center;
+}
+
+.display-year {
+    fill: rgba(35, 42, 48, 0.5);
+    font-size: 100px;   
+}
