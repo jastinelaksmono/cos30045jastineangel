@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Data Visualization Project</title>
+	<meta charset="UTF-8">
+	<meta name="description"	content="Migration Insights">
+	<meta name="keywords"		  content="HTML, CSS">
+	<meta name="author"			  content="Jastine Francy Laksmono & Angelina Rianti">
+    <link href="style.css" rel="stylesheet" type="text/css" >
+    <script src="script.js" type="text/javascript"></script>
+
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+
+</head>
+
+<body>
+    <!-- Main components in the page -->
+    <main>
+        <div id ="container">
+            <img src="images/bg_gradient.png" id="background" alt="bg">
+            <div id="subContainer">
+                <div id="navContainer">
+                    <h4 class="navTitle">World Migration</h4>
+
+                    <!-- Display the navbar -->
+                    <nav id = "sidenav">
+                        <a href="Index.html">
+                            <img src="images/home_icon.png" class="navIcon" alt="home_icon">
+                            <div>Homepage</div>
+                        </a>
+                        <a href="MigrationInsights.html" class="active">
+                            <img src="images/graph_icon.png" class="navIcon" alt="graph_icon">
+                            Migration Insights
+                        </a>
+                        <a href="ResidentMigrants.html">
+                            <img src="images/world_icon.png" class="navIcon" alt="world_icon">
+                            Resident Migrants
+                        </a>
+                    </nav>
+
+                    <div class="interactionContainer"></div>
+                    <div class="contentText">Do you know which country has the largest population of migrants?</div>
+                    <img src="images/family_migrate.png" class="contentPic" alt="family_migrate">
+                </div>
+
+                <div class="middleContainer" style="width: 93%;">
+                    <div class="pageTitle">Migration Insights</div>
+                    <div class="chartTitle" style="width: 94%;">Population Growth of Top 10 Destination Countries for Migration in 2020 from '90-'20</div>
+                    <div id="chartContainer" style=" width: 94%;">
+                        <div id="chartDesc">
+                            <div class="display-year"></div>
+                            <div class="colorBox"></div><div class="attrText">Migrated People</div>
+                            <div class="colorBox" style="opacity: 0.5;"></div><div class="attrText">Original Residents</div>
+                            <button id="populationButton"></button>
+                        </div>
+                        <!--
+                        <div class="group">
+                            <button id="orgBtn" class="originClicked">Origin Countries</button>
+                            <button id="dstBtn" class="destination">Destination Countries</button>
+                        </div>
+                        
+                        <div class="group">
+                            <a href="#" class="two">
+                                <span>Destination Countries</span>
+                                <div class="bg"></div>
+                            </a>
+                            <a href="#" class="one">Origin Countries</a>
+                        </div>
+                        <input type="checkbox" id="switch" />
+                        <label for="switch"></label>
+                        -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+</body>
+
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Data Visualization Project</title>
+	<meta charset="UTF-8">
+	<meta name="description"	content="Homepage">
+	<meta name="keywords"		  content="HTML, CSS">
+	<meta name="author"			  content="Jastine Francy Laksmono & Angelina Rianti">
+    <link href="style.css" rel="stylesheet" type="text/css" >
+
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+
+</head>
+
+<body>
+    <!-- Main components in the page -->
+    <main>
+        <div id ="container">
+            <img src="images/bg_gradient.png" id="background" alt="bg">
+            <div id="subContainer">
+
+                <div id="navContainer">
+                    <h4 class="navTitle">World Migration</h4>
+
+                    <!-- Display the navbar -->
+                    <nav id = "sidenav">
+                        <a href="Index.html" class="active">
+                            <img src="images/home_icon.png" class="navIcon" alt="home_icon">
+                            <div>Homepage</div>
+                        </a>
+                        <a href="MigrationInsights.html">
+                            <img src="images/graph_icon.png" class="navIcon" alt="graph_icon">
+                            Migration Insights
+                        </a>
+                        <a href="ResidentMigrants.html">
+                            <img src="images/world_icon.png" class="navIcon" alt="world_icon">
+                            Resident Migrants
+                        </a>
+                    </nav>
+                </div>
+
+                <div class="middleContainer" style="padding: 2vw; width: 88%;">
+                    <div class="pageTitle" style="text-align: center;">Welcome to The World Migration Website</div>
+                    <div id="scrollingContainer">
+                        <table id="steps">
+                            <tr>
+                                <td class="stepsContainer">
+                                    <div class="stepTitle">
+                                        Are you looking for a place <br> to migrate? Get to know more using our graphs
+                                        <img src="images/step_1.png" alt="step_pic" class="stepPic">
+                                    </div>
+                                </td>
+                                <td class="lineContainer">
+                                    <div class="line">
+                                        <div class="circleDot"></div>
+                                    </div>
+                                </td>
+                                <td class="stepsContainer">
+                                    <div class="stepTitle">
+                                        <img src="images/text_1.png" alt="step_pic" class="stepPic">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="stepsContainer">
+                                    <div class="stepTitle">
+                                        <img src="images/text_2.png" alt="step_pic" class="stepPic">
+                                    </div>
+                                </td>
+                                <td class="lineContainer">
+                                    <div class="line" style="border-radius: 0vw;">
+                                        <div class="circleDot"></div>
+                                    </div>
+                                </td>
+                                <td class="stepsContainer">
+                                    <div class="stepTitle">
+                                        Look over our migration insights and compare the population and migration growth over 20 years! 
+                                        <img src="images/step_2.png" alt="step_pic" class="stepPic">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="stepsContainer">
+                                    <div class="stepTitle">
+                                        Still undecided where to migrate? Check out the resident migrants' evolution & recent origins 
+                                        <img src="images/step_3.png" alt="step_pic" class="stepPic">
+                                    </div>
+                                </td>
+                                <td class="lineContainer">
+                                    <div class="line" style="border-radius: 0vw 0vw 2vw 2vw;">
+                                        <div class="circleDot"></div>
+                                    </div>
+                                </td>
+                                <td class="stepsContainer">
+                                    <div class="stepTitle">
+                                        <img src="images/text_3.png" alt="step_pic" class="stepPic">
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+
+</html>

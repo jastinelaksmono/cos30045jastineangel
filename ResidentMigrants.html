@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Data Visualization Project</title>
+	<meta charset="UTF-8">
+	<meta name="description"	content="Resident Migrants">
+	<meta name="keywords"		  content="HTML, CSS">
+	<meta name="author"			  content="Jastine Francy Laksmono & Angelina Rianti">
+    <link href="style.css" rel="stylesheet" type="text/css" >
+    <script src="archive.js" type="text/javascript"></script>
+
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+
+</head>
+
+<body>
+    <!-- Main components in the page -->
+    <main>
+        <div id ="container">
+            <img src="images/bg_gradient.png" id="background" alt="bg">
+            <div id="subContainer">
+                <div id="navContainer">
+                    <h4 class="navTitle">World Migration</h4>
+
+                    <!-- Display the navbar -->
+                    <nav id = "sidenav">
+                        <a href="Index.html">
+                            <img src="images/home_icon.png" class="navIcon" alt="home_icon">
+                            <div>Homepage</div>
+                        </a>
+                        <a href="MigrationInsights.html">
+                            <img src="images/graph_icon.png" class="navIcon" alt="graph_icon">
+                            Migration Insights
+                        </a>
+                        <a href="ResidentMigrants.html" class="active">
+                            <img src="images/world_icon.png" class="navIcon" alt="world_icon">
+                            Resident Migrants
+                        </a>
+                    </nav>
+
+                    <div class="interactionContainer"></div>
+                    <div class="contentText">Are you looking for a place to migrate? Get to know more using our graphs</div>
+                    <img src="images/family_arrive_destination.png" class="contentPic" alt="family_arrive_destination">
+                </div>
+
+                <!-- Chart -->
+                <div class="middleContainer">
+                    <div class="pageTitle">Resident Migrants</div>
+                    <div class="chartTitle">Evolution of International Migrants in Top 10 Countries in 2020</div>
+                    <div id="chartContainer">
+                        <div id="chartDesc"></div>
+                    </div>
+                </div>
+
+                <!-- Filter Bar -->
+                <div id="expandSign">
+                    <div id="signText">Click here</div>
+                </div>
+                <div class="filterSpace">
+                    <div class="filterContainer">
+                        <h4 class="filterTitle">
+                            <div>Select a year</div>
+                            <div class="mandatory">*</div>
+                        </h4>
+                        <div class="dropdown">
+                            <button class="dropbtn">
+                                <div id="yearSelection">Year selection</div>
+                                <img src ="images/dropdown.png" id="dropdownIcon" alt="dropdown" mask="url(#mask)">
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="#" id="All" class="topDropdown">All</a>
+                                <a href="#" id="y2020">2020</a>
+                                <a href="#" id="y2015">2015</a>
+                                <a href="#" id="y2010">2010</a>
+                                <a href="#" id="y2005">2005</a>
+                                <a href="#" id="y2000">2000</a>
+                                <a href="#" id="y1995">1995</a>
+                                <a href="#" id="y1990" class="lastDropdown">1990</a>
+                            </div>
+                        </div>
+
+                        <div id="gender">
+                            <h4 class="filterTitle">Gender<div class="mandatory">*</div></h4>
+                            <table id="genderContainer">
+                                <tr>
+                                    <td>
+                                        <button id="male" class="genderOptions" onclick="setGender('male')">Male</button>
+                                    </td>
+                                    <td>
+                                        <button id="female" class="genderOptions" onclick="setGender('female')">Female</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button id="combined" class="genderOptions" onclick="setGender('combined')">Combined</button>
+                                    </td>
+                                    <td>
+                                        <button id="total" class="genderOptions" onclick="setGender('total')">Total</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <!--
+                            <div id="dpOrigin">
+                                <h4 class="filterTitle">
+                                    <div>Select an origin country</div>
+                                </h4>
+                                <div class="dropdown">
+                                    <button class="dropbtn">
+                                        <div id="originSelection">Year selection</div>
+                                        <img src ="images/dropdown.png" id="dropdownIcon" alt="dropdown" mask="url(#mask)">
+                                    </button>
+                                    <div class="dropdown-content">
+                                        <a href="#" id="None" class="topDropdown">None</a>
+                                        <a href="#" id="India">India</a>
+                                        <a href="#" id="Mexico">Mexico</a>
+                                        <a href="#" id="China">China</a>
+                                        <a href="#" id="Arab">Syrian Arab Republic</a>
+                                        <a href="#" id="Bangladesh" class="lastDropdown">Bangladesh</a>
+                                    </div>
+                                </div>
+                            </div>
+                        -->
+
+                        <div id="sort">
+                            <h4 class="filterTitle">Sort</h4>
+                            <table id="genderContainer">
+                                <tr>
+                                    <td>
+                                        <button id="asc" class="genderOptions" onclick="setSort('asc')">Ascending</button>
+                                    </td>
+                                    <td>
+                                        <button id="dsc" class="genderOptions" onclick="setSort('dsc')">Descending</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div id="datapoints">
+                            <input type="checkbox" id="checkboxContainer">
+                            <label for="checboxContainer" id="checkboxLabel">
+                                Show Origin Countries
+                            </label>
+                        </div>
+
+
+                        <div class = "applyContainer">
+                            <button id="apply">Apply</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        expandableFilter();
+        selectYear();
+        apply();
+    </script>
+
+</body>
+
+
+</html>

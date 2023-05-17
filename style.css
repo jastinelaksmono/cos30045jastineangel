@@ -1,0 +1,893 @@
+/* || GENERAL STYLES */
+
+html
+{
+    background-color: #F1E9E0;
+}
+
+
+/* || UTILITIES - FONTS */
+@font-face 
+{
+    font-family: "OpenSansExtraBold";
+    src: url("fonts/OpenSans-ExtraBold.ttf");
+}
+
+@font-face 
+{
+    font-family: "OpenSansBold";
+    src: url("fonts/OpenSans-Bold.ttf");
+}
+
+@font-face 
+{
+    font-family: "OpenSansSemiBold";
+    src: url("fonts/OpenSans-SemiBold.ttf");
+}
+
+@font-face 
+{
+    font-family: "OpenSansMedium";
+    src: url("fonts/OpenSans-Medium.ttf");
+}
+
+@font-face 
+{
+    font-family: "OpenSansRegular";
+    src: url("fonts/OpenSans-Regular.ttf");
+}
+
+
+
+
+/* || SITEWIDE */
+
+/*Container for the background*/
+#container
+{
+    width: 100%;
+    display: block;
+    position: relative;
+}
+
+/* Welcome image wallpaper in each page */
+#background
+{
+    top: -20px;
+    left: -8px;
+    position: relative;
+    display: block;
+    width: 100vw;
+}
+
+/*Container for the rounded square on 
+  top of the background*/
+#subContainer
+{
+    top: 4vw;
+    left: 0;
+    right: 0;
+    position: absolute;
+    background-color: white;
+    border-radius: 2vw;
+    width: 90%;
+    height: 50vw;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+#navContainer{
+    position: relative;
+    display: block;
+    background-color: #4A1BAB;
+    border-radius: 2vw;
+    width: 20%;
+    height: 50vw;
+}
+
+.navTitle{
+    font-family: OpenSansBold;
+    font-size: 1.3vw;
+    color: white;
+    text-align: center;
+    margin-top: 3vw;
+    margin-bottom: 5vw;
+}
+
+/*The nav texts in each page*/
+#sidenav a
+{
+    color: white;
+    font-size: 1vw;
+    text-decoration: none;
+    font-family: OpenSansSemiBold;
+    display: flex;
+    margin-left: 1.5vw;
+    padding: 0.5vw;
+}
+
+/*Settings for the nav when in hover for each page*/
+/*When the current page clicked, the nav for that page is activated*/
+#sidenav a:hover
+{
+    background-color: #6034b7;
+    border-radius: 2vw 0vw 0vw 2vw;
+    color: white;
+}
+
+#sidenav a.active
+{
+    background-color: white;
+    border-radius: 2vw 0vw 0vw 2vw;
+    border-style: solid;
+    border-color: white;
+    color: #4A1BAB;
+
+}
+
+.navIcon{
+    width: 10%;
+    padding-left: 0.7vw;
+    padding-right: 0.7vw;
+    display: flex;
+}
+
+.interactionContainer
+{
+    width: 80%;
+    height: 42%;
+    background-color: white;
+    opacity: 20%;
+    border-radius: 1vw;
+    position: absolute;
+    margin-top: 9.5vw;
+    margin-left: 1.8vw;
+}
+
+.contentPic
+{
+    display: block;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contentText{
+    font-family: OpenSansSemiBold;
+    font-size: 1vw;
+    color: white;
+    margin-left: 3.5vw;
+    margin-right: 3vw;
+    margin-top: 11vw;
+}
+
+.middleContainer{
+    top: 4vw;
+    width: 55%;
+    height: 50vw;
+}
+
+.pageTitle
+{
+    font-family: OpenSansBold;
+    color: #300980;
+    padding: 1vw 2vw 0vw 2vw;
+    font-size: 3vw;
+}
+
+.chartTitle
+{
+    font-family: OpenSansRegular;
+    color: #4A1BAB;
+    padding: 0vw 8vw 1vw 2vw;
+    font-size: 2vw;
+}
+
+#chartDesc{
+    font-family: OpenSansRegular;
+    color: #4A1BAB;
+    padding: 0vw 2vw 1vw 2vw;
+    font-size: 1vw;
+    display: flex;
+    flex-direction: row;
+}
+
+#chartContainer{
+    background-color: white;
+    border-radius: 2vw;
+    box-shadow: 0px 2px 5px #b8b8b8;
+
+    width: 140%;
+    height: 72%;
+    margin-left: 2vw;
+}
+
+.mandatory{
+    padding-left: 0.5vw;
+    color: red;
+}
+
+/* || HOMEPAGE */
+#scrollingContainer{
+    margin-top: 2vw;
+    width: 100%;
+    height: 40vw;
+    overflow-y: scroll;
+}
+
+.stepsContainer{
+    width: 45%;
+    height: 36vw;
+}
+
+.lineContainer{
+    width: 5vw;
+    height: 36vw;
+    position: relative;
+}
+
+.line{
+    width: 1vw;
+    height: 36vw;
+    border: 0.2vw #4A1BAB solid;
+    background-color: #4A1BAB;
+    border-radius: 2vw 2vw 0vw 0vw;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.circleDot{
+    width: 2vw;
+    height: 2vw;
+    background-color: white;
+    border: 0.5vw #4A1BAB solid;
+    border-radius: 2vw;
+    position: absolute;
+    margin-top: 18vw;
+    left: -1vw;
+}
+
+#steps{
+    border-collapse: collapse;
+}
+
+#steps tr td{
+    padding: 0;
+}
+.stepTitle{
+    font-family: OpenSansMedium;
+    font-size: 1.8vw;
+    color: #4A1BAB;
+    padding: 1vw;
+    text-align: center;
+}
+
+.stepPic{
+    width: 70%;
+    text-align: center;
+}
+
+
+/* || MIGRANTS INSIGHT */
+/*
+.group {
+	width: 98%;
+    height: 15%;
+	background-color: white;
+	position: relative;
+    display: flex;
+    flex-direction: row;
+    border-color: #4A1BAB;
+    border-style: solid;
+    align-items: center;
+    border-width: 0.5vw;
+    border-radius: 2vw 2vw 0vw 0vw;
+}
+
+.group button
+{
+    font-size: 1.5vw;
+    text-decoration: none;
+    font-family: OpenSansBold;
+    display: flex;
+    padding: 1.1vw 0vw 1.1vw 0vw;
+    flex:1 0 0%;
+    justify-content: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+        touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+
+.origin, .destination
+{
+    border-radius: 1.5vw 0vw 0vw 0vw;
+    background-color: white;
+    border: 1px solid transparent;
+    color: #4A1BAB;
+}
+
+.origin:hover, .destination:hover
+{
+    background-color: #4A1BAB;
+    color: white;
+    border-color: #4A1BAB;
+    border-style: solid;
+    border-width: 0.5vw;
+}
+
+.originClicked
+{
+    border-radius: 1.5vw 0vw 0vw 0vw;
+    background-color: #4A1BAB;
+    color: white;
+    border-color: #4A1BAB;
+    border-style: solid;
+    border-width: 0.5vw;
+}
+
+.destination
+{
+    border-radius: 0vw 1.5vw 0vw 0vw;
+}
+
+.destinationClicked{
+    border-radius: 0vw 1.5vw 0vw 0vw;
+    background-color: #4A1BAB;
+    color: white;
+    border-color: #4A1BAB;
+    border-style: solid;
+    border-width: 0.5vw;
+}
+*/
+
+.m-path {
+    fill:rgb(255, 194, 82);
+    stroke: #FFC453;
+    stroke-width: 4;
+}
+
+.p-path {
+    fill:#FFC453;
+    stroke: #FFC453;
+    stroke-width: 2;
+    opacity: 0.3;
+}
+
+.m-line{
+    stroke: rgb(255, 255, 255);
+}
+
+.p-line{
+    stroke: #FFC453;
+}
+
+.m-vertical-line {
+    stroke:rgba(255, 255, 255);
+    stroke-width:2; 
+    stroke-dasharray: 1%;
+    opacity: 0;
+}
+
+.p-vertical-line {
+    stroke:rgba(255, 194, 82);
+    stroke-width:6; 
+    opacity: 0;
+}
+
+.m-tooltip {
+    fill: rgba(255, 255, 255);
+    stroke: #FFC453;
+    stroke-width: 1px;
+    opacity: 0;
+}
+
+.p-tooltip {
+    fill: rgba(255, 255, 255);
+    stroke: #FFC453;
+    stroke-width: 1px;
+    opacity: 0;
+}
+
+.m-label {
+    fill:black;
+    opacity: 0;
+    font-size: 10px;
+    text-align: center;
+    justify-content: center;
+    font-family: OpenSansBold;
+    font-size: 8px;
+}
+
+.p-label {
+    fill:black;
+    opacity: 0;
+    font-size: 10px;
+    text-align: center;
+    justify-content: center;
+    font-family: OpenSansBold;
+    font-size: 8px;
+    z-index: 10;
+}
+
+.display-year {
+    font-size: 5vw;   
+    font-family: OpenSansBold;
+}
+
+#populationButton{
+    padding: 0.5vw 4vw 0.5vw 4vw;
+    font-family: OpenSansBold;
+    background-color: #4A1BAB;
+    color: white;
+    border-radius: 5vw;
+    margin-left: auto;
+    font-size: 1.5vw;
+    height: 4vw;
+    margin-top: 1.5vw;
+}
+
+.colorBox{
+    width: 1vw;
+    height: 1vw;
+    background-color: #FFC453;
+    border-radius: 0.2vw;
+    margin-left: 3vw;
+    margin-top: 3vw;
+    margin-right: 1vw;
+}
+
+.attrText{
+    font-size: 1vw;
+    margin-top: 2.8vw;
+    font-family: OpenSansBold;
+}
+
+.tooltipBox2
+{
+    background-color: white;
+    border: solid;
+    border-radius: 2vw;
+    border-color: #4A1BAB;
+    width: 25%;
+    position: absolute;
+    vertical-align: middle;
+    padding: 1vw;
+    top: 20vw;
+    right: 4.5vw;
+}
+.tooltipDesc2
+{
+    font-size: 1.2vw;
+    display: flex;
+    flex-direction: row;
+    font-family: OpenSansSemiBold;
+}
+.clearMargin{
+    margin: 0.3vw 0.5vw 0.5vw 0vw;
+}
+.tooltipTitle
+{
+    font-size: 1.5vw;
+    font-family: OpenSansBold;
+    color: #4A1BAB;
+}
+
+
+/* || RESIDENT MIGRANTS */
+
+/*The slider container for sliding between two object*/
+.slider 
+{
+    width: 145%;
+    height: 60%;
+    overflow: hidden;
+    margin-left: 2vw;
+    z-index: -1;
+}
+/*sliding target for title lgog*/
+#slide-1:target ~ #chartContainer 
+{
+    left: -35%;
+}
+
+/*sliding targer for card object*/
+#slide-2:target ~ #chartContainer 
+{
+    left: 0%;
+}
+
+/*The previous button (has same functionality as the circ button)*/
+#prev
+{
+    position: absolute;
+    top: 13vw;
+    width: 4vw;
+    right: 25vw;
+    cursor: pointer;
+    
+}
+
+/*The next button (has same functionality as the circ button)*/
+#next
+{
+    position: absolute;
+    top: 13vw;
+    width: 4vw;
+    right: 30vw;
+    cursor: pointer;
+}
+
+.axis
+{
+    font-family: OpenSansBold;
+    font-size: 8px;
+}
+
+.lineStroke
+{
+    stroke: white;
+    stroke-width: 2px;
+    z-index: 2;
+}
+
+.tooltipBox
+{
+    background-color: white;
+    border: solid;
+    border-radius: 2vw;
+    border-color: #4A1BAB;
+    width: 25%;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    vertical-align: middle;
+
+}
+
+.tooltipDesc
+{
+    font-size: 1.2vw;
+    padding: 1vw;
+    font-family: OpenSansBold;
+}
+
+.tooltipSign
+{
+    width: 10%;
+    padding: 0.7vw;
+    padding: 0.7vw 0vw 0.7vw 1vw;
+}
+
+#expandSign
+{
+    position: absolute;
+    width: 10%;
+    background-color: #4A1BAB;
+    border-radius: 2vw 0vw 0vw 2vw;
+    top: 5vw;
+    right: 0;
+    transition: .5s ease;
+    z-index: 1;
+}
+
+#signText
+{
+    font-family: OpenSansBold;
+    font-size: 1vw;
+    text-align: right;
+    padding: 1vw;
+    color: white;
+    transition: .5s ease;
+}
+
+.filterSpace
+{
+    position: relative;
+    border-radius: 2vw;
+    width: 25%;
+    height: 50vw;
+    margin-left: 4.5vw;
+}
+
+.filterContainer
+{
+    position: absolute;
+    background-color: #F8F8F8;
+    border-radius: 2vw;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
+    width: 0;
+    height:100%;
+    transition: .5s ease;
+}
+
+
+/*Setting for both the content and overlay to be full size
+.filterSpace:hover .filterContainer
+{
+   width: 90%;
+}
+
+.filterSpace:hover .expandSign
+{
+   width: 100%;
+   text-align: center;
+}
+*/
+
+.filterTitle
+{
+    display: flex;
+    flex-direction: row;
+    font-family: OpenSansBold;
+    font-size: 1.3vw;
+    color: black;
+    margin-top: 2vw;
+    margin-left: 2vw;
+}
+
+.dropdown
+{
+    margin-left: 2vw;
+    margin-right: 2vw;
+}
+
+.dropbtn
+{
+    color: #B8B8B8;
+    background-color: white;
+    padding: 0.5vw 0.5vw 0.5vw 1vw;
+    width: 17vw;
+    text-align: left;
+    font-size: 1vw;
+    letter-spacing: 0.05vw;
+    border-style: solid;
+    border-width: 0.15vw;
+    border-color: #B8B8B8;
+    border-radius: 2vw;
+    cursor: pointer;
+    box-shadow: 0px 2px 3px #b8b8b8;
+    display: flex;
+    flex-direction: row;
+    font-family: OpenSansBold;
+}
+
+#dropdownIcon
+{
+    width: 5%;
+    margin-top: 0.5vw;
+    margin-right: 0.5vw;
+    margin-left: auto;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    font-family: OpenSansBold;
+    font-size: 1vw;
+    background-color: white;
+    color: #B8B8B8;
+    width: 17vw;
+    font-size: 1vw;
+    box-shadow: 0px 2px 3px #b8b8b8;
+    border-radius: 1vw;
+    z-index: 1;
+}
+  
+.dropdown-content a {
+    color: #696969;
+    padding: 0.5vw;
+    padding-left: 1vw;
+    text-decoration: none;
+    display: block;
+}
+  
+.dropdown-content a:hover {
+    background-color: #08CCD4;
+    color:white;
+}
+
+.topDropdown:hover {
+    border-radius: 1vw 1vw 0vw 0vw;
+}
+
+.lastDropdown:hover {
+    border-radius: 0vw 0vw 1vw 1vw;
+}
+  
+.dropdown:hover .dropdown-content
+{
+    display: block;
+}
+
+#genderContainer
+{
+    width: 17vw;
+    margin-left: 2vw;
+    table-layout: fixed;
+    margin-top: -1vw;
+}
+
+.genderOptions
+{   
+    color: #B8B8B8;
+    background-color: white;
+    border-style: solid;
+    border-width: 0.15vw;
+    border-color: #B8B8B8;
+    border-radius: 2vw;
+    padding: 0.5vw;
+    width: 100%;
+    font-family: OpenSansBold;
+    font-size: 1vw;
+}
+
+
+.genderOptions:hover
+{
+    border-color: #08CCD4;
+    color: #08CCD4;
+}
+
+.genderSelected
+{
+    border-color: #08CCD4;
+    color: #08CCD4;
+    background-color: white;
+    border-style: solid;
+    border-width: 0.15vw;
+    border-radius: 2vw;
+    padding: 0.5vw;
+    width: 100%;
+    font-family: OpenSansBold;
+    font-size: 1vw;
+}
+
+#datapoints
+{
+    margin: 2vw 2vw 0vw 2vw; 
+    height: 2vw;
+    display: flex;
+    flex-direction: row;
+}
+
+#checkboxContainer
+{
+    border-radius: 0.5vw;
+}
+
+#checkboxLabel
+{
+    font-family: OpenSansBold;
+    font-size: 1vw;
+    color: #696969;
+    margin-right: 1.5vw;
+    margin-top: 0.3vw;
+}
+
+#apply
+{
+    color: white;
+    background-color: #4A1BAB;
+    padding: 0.5vw 0.5vw 0.5vw 1vw;
+    width: 17vw;
+    text-align: center;
+    font-size: 1vw;
+    letter-spacing: 0.05vw;
+    border-radius: 2vw;
+    cursor: pointer;
+    box-shadow: 0px 2px 3px #b8b8b8;
+    font-family: OpenSansBold;
+    margin-left: 2vw;
+    margin-right: 2vw;
+}
+
+.applyContainer
+{
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 2vw;
+}
+
+/* sliding animation button 
+.group {
+    width: 100%;
+    height: 15%;
+    line-height: 5vw;
+    position: relative;
+    z-index: 1;
+    margin-left: auto;
+    margin-right: auto;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    
+}
+.one {
+    float: left;
+    color: white;
+    text-decoration: none;
+    transition: 1.0s;
+}
+.two {
+    float: right;
+    text-decoration: none;
+    color: #a6afbf;
+}
+.bg {
+    background-color: #e67e22;
+    height: 100%;
+    width: 50%;
+    position: absolute;
+    top: 0;
+    margin-left: -30vw;
+    z-index: -1;
+    transition: 1.0s;
+    border-radius: 2vw 0vw 0vw 0vw;
+    
+}
+
+span:hover + .bg {
+    width: 50%;
+    align-items: right;
+    background: #27ae60;
+    margin-left: -3vw;
+    border-radius: 0vw 2vw 0vw 0vw;
+}
+
+.two > span:hover {
+    color: white;
+}
+
+.two:hover ~ .one {
+    color:#fff;
+}
+span {
+    transition: 1.0s;
+}
+*/
+
+
+/* toggle animation button
+
+label {
+	cursor: pointer;
+	width: 98%;
+    height: 15%;
+	background: white;
+	position: relative;
+    display: block;
+    border-color: #4A1BAB;
+    border-style: solid;
+    border-width: 0.5vw;
+    border-radius: 2vw 2vw 0vw 0vw;
+}
+
+label:after {
+	content: '';
+	position: absolute;
+    height: 100%;
+    width: 50%;
+	background: #4A1BAB;
+    border-radius: 1vw 0vw 0vw 0vw;
+	transition: 1.0s;
+}
+
+input:checked + label:after {
+	left: calc(100%);
+	transform: translateX(-100%);
+    border-radius: 0vw 1vw 0vw 0vw;
+}
+
+*/
+
