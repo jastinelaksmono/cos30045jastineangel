@@ -38,6 +38,15 @@ html
 }
 
 
+/* || UTILITIES - KEYFRAMES */
+
+/*Animate text for scrolling
+*Used for the 'Contact Here' text in the about me page*/
+@keyframes animText
+{
+    0% {transform: translateX(-100%)}
+    100% {transform: translateX(100%)}
+}
 
 
 /* || SITEWIDE */
@@ -85,6 +94,7 @@ html
     border-radius: 2vw;
     width: 20%;
     height: 50vw;
+    z-index: 10;
 }
 
 .navTitle{
@@ -215,6 +225,52 @@ html
     width: 100%;
     height: 40vw;
     overflow-y: scroll;
+}
+
+/*The title setting for 'contact here' text*/
+.skyPane
+{
+    font-family: DinCondensed;
+    font-size: 3vw;
+    vertical-align: center;
+    padding-top:10px;
+}
+
+/*scroll title text from left to right infinitely using animation*/
+.airplane
+{
+    transform: translateX(-100%);
+    animation: animText 10s linear infinite;
+    z-index:9;
+}
+
+.airplane2
+{
+    animation-delay: 5s;
+    z-index:9;
+}
+
+.cloud
+{
+    transform: translateX(-100%);
+    animation: animText 15s linear infinite;
+    z-index:6;
+    right: 2vw;
+}
+
+.cloud2
+{
+    animation: animText 15s linear infinite;
+    animation-delay: 3s;
+    z-index:5;
+}
+
+.airplanePic{
+    width: 15%;
+}
+
+.cloudPic{
+    width: 100%;
 }
 
 .stepsContainer{
