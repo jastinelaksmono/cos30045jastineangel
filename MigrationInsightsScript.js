@@ -16,7 +16,7 @@ async function init() {
   // Fetch migration database
   await d3
     .csv(
-      'https://raw.githubusercontent.com/jastinelaksmono/dumps/main/DVfolder/destination.csv'
+      'https://raw.githubusercontent.com/jastinelaksmono/cos30045jastineangel/main/csvData/destination-migrants'
     )
     .then(function (rows) {
         
@@ -35,7 +35,7 @@ async function init() {
 
     // Fetch Population database
     await d3.csv(
-    'https://raw.githubusercontent.com/jastinelaksmono/dumps/main/DVfolder/world-population.csv'
+    'https://raw.githubusercontent.com/jastinelaksmono/cos30045jastineangel/main/csvData/destination-population'
     )
     .then(function (rows) {
 
@@ -52,13 +52,14 @@ async function init() {
     // SVG
     const margin = {top: 15, right: 20, bottom: 0, left: 60},
     width = 700,
-    height = 250;
+    height = 270;
 
     const w = width - margin.left - margin.right;
     const h = height - margin.top - margin.bottom;
 
     //var margin.left = 70;
     //var margin.top = 15;
+
 
     var svg = d3.select('#chartContainer')
                 .append('svg')
@@ -145,8 +146,6 @@ async function init() {
     createLineGraph(svg, populationDataset,'p', yScale, xCountryScale, xYearScale, area, line);
     createLineGraph(svg, migrationDataset, 'm', yScale, xCountryScale, xYearScale, area, line);
 
-    //console.log(populationDataset);
-    // Create migration graph
 }
 
 function createLineGraph(
@@ -222,6 +221,7 @@ function createLineGraph(
         .on('mouseover', (e, d) => mouseover(svg, e, d))
         .on('mousemove', (e, d) => mousemove(svg, e, d))
         .on('mouseout', (e, d) => mouseout(svg, e, d));
+         
 
     // Tooltip
     g.selectAll('circle')
@@ -272,13 +272,15 @@ function mouseover(canvas, event, data) {
     //console.log(data);
 
     // Make tooltip visible
-    canvas.selectAll(`.${className}`).style('opacity',1);
+    canvas.selectAll(`.${className}`).style('opacity',1).style('visibility','visible');
 
     if(btnText == "Show Population"){
         canvas.selectAll('.p-label, .p-vertical-line').style('opacity',0);
+        canvas.selectAll('.m-vertical-line').style('visibility','visible');
+        canvas.selectAll('.m-label').style('visibility','visible');
     }else{
-        canvas.selectAll('.m-vertical-line').style('opacity',0);
-        canvas.selectAll('.m-label').style('opacity',0);
+        canvas.selectAll('.m-vertical-line').style('visibility','hidden');
+        canvas.selectAll('.m-label').style('visibility','hidden');
         d3.selectAll('.tooltipBox2').style('opacity', 1)
     }
 
