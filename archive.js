@@ -280,7 +280,6 @@ function findDataOnYear()
                     return d3.ascending(a[getGender]/10, b[getGender]/10);
                 });
             }
-            //console.log(dataset);
             
         }else if(getSortType == "dsc"){
             if(getGender == "combined"){
@@ -292,7 +291,6 @@ function findDataOnYear()
                     return d3.descending(a[getGender]/10, b[getGender]/10);
                 });
             }
-            //console.log(dataset);
         }
 
         xScale = d3.scaleBand()
@@ -337,20 +335,22 @@ function drawChart(subgroups, dataset, colors)
 
     // create a tooltip
     const tooltip = d3.select("#chartContainer")
-    .append("div")
-    .style("opacity", 0)
-    .attr("class", "tooltipBox");
+                        .append("div")
+                        .style("opacity", 0)
+                        .attr("class", "tooltipBox");
 
+    //make the tooltip visible on mouse over
     const mouseover = function(event,d) {
         tooltip.style("opacity", 1)
         d3.select(this)
             .style("stroke", "#4A1BAB")
             .style("opacity", 1);
-
     }
 
+    //make the tooltip displaying decriptions of related data one mouse move
     const mousemove = function(event,d) {
         var value = 0;
+        //Display number of male or female migrants (if gender applied)
         if(getGender == "combined")
         {
             value = +d[1] - +d[0];
@@ -365,19 +365,24 @@ function drawChart(subgroups, dataset, colors)
             
         }else{
             value = +d.data[getGender];
-            if(isOriginChecked){
+
+            //Display top 3 origin countries of hovered destination country
+            if(isOriginChecked && getYear == "2020"){
                 findOriginCountries(d.data.countries);
                 tooltip.html("<img src='images/" + getGender + "_icon.png' class='tooltipSign' style='height: 10%;'>"+
-                            "<div class='tooltipDesc'>" + getGender.charAt(0).toUpperCase() + getGender.slice(1) + " Migrants: " + value.toLocaleString('en-US')  + 
-                            getOrigin + 
+                            "<div class='tooltipDesc'>" + getGender.charAt(0).toUpperCase() + getGender.slice(1) + 
+                            " Migrants: " + value.toLocaleString('en-US')  + getOrigin + 
                             "</div>");
             }else{
                 tooltip.html("<img src='images/" + getGender + "_icon.png' class='tooltipSign'>"+
-                            "<div class='tooltipDesc'>" + getGender.charAt(0).toUpperCase() + getGender.slice(1) + " Migrants: " + value.toLocaleString('en-US')  + 
+                            "<div class='tooltipDesc'>" + getGender.charAt(0).toUpperCase() + getGender.slice(1) + 
+                            " Migrants: " + value.toLocaleString('en-US')  + 
                             "</div>");
 
             }
         }
+
+        //Position the tooltip based on mouse event
         tooltip.style("left", (event.x)/1.3 + "px")
                 .style("top", (event.y)/2 + "px")
       }
@@ -594,7 +599,7 @@ function setGender(gender)
 }
 
 function setOrigin(){
-    if(getYear=="2020" && getGender == "total" && getSortType == ""){
+    if(getYear=="2020" && getGender == "total"){
         d3.select("#datapoints").style("visibility","visible");
     }else{
         d3.select("#datapoints").style("visibility","hidden");

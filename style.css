@@ -233,7 +233,7 @@ html
     font-family: DinCondensed;
     font-size: 3vw;
     vertical-align: center;
-    padding-top:10px;
+    margin-bottom: 2vw;
 }
 
 /*scroll title text from left to right infinitely using animation*/
@@ -247,22 +247,32 @@ html
 .airplane2
 {
     animation-delay: 5s;
-    z-index:9;
+}
+
+.airplane3
+{
+    animation-duration: 9s;
+    animation-delay: 3s;
 }
 
 .cloud
 {
     transform: translateX(-100%);
-    animation: animText 15s linear infinite;
+    animation: animText 13s linear infinite;
     z-index:6;
     right: 2vw;
 }
 
 .cloud2
 {
-    animation: animText 15s linear infinite;
+    animation: animText 14s linear infinite;
     animation-delay: 3s;
-    z-index:5;
+}
+
+.cloud3
+{
+    animation: animText 15s linear infinite;
+    animation-delay: 5s;
 }
 
 .airplanePic{
