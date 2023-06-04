@@ -285,18 +285,18 @@ html
 
 .stepsContainer{
     width: 45%;
-    height: 36vw;
+    height: 38vw;
 }
 
 .lineContainer{
     width: 5vw;
-    height: 36vw;
+    height: 38vw;
     position: relative;
 }
 
 .line{
     width: 1vw;
-    height: 36vw;
+    height: 38vw;
     border: 0.2vw #4A1BAB solid;
     background-color: #4A1BAB;
     border-radius: 2vw 2vw 0vw 0vw;
@@ -327,13 +327,30 @@ html
     font-family: OpenSansMedium;
     font-size: 1.8vw;
     color: #4A1BAB;
-    padding: 1vw;
+    padding: 0vw 1vw 1vw 1vw;
     text-align: center;
 }
 
 .stepPic{
     width: 70%;
     text-align: center;
+}
+
+.goToPageBtn{
+    padding: 0.5vw 4vw 0.5vw 4vw;
+    background-color: #4A1BAB;
+    border-radius: 5vw;
+    margin-left: auto;
+    height: 4vw;
+    margin-top: 1.5vw;
+    margin-bottom: 3vw;
+}
+
+.goToPageBtn a{
+    font-family: OpenSansBold;
+    color: white;
+    font-size: 1.5vw;
+    text-decoration: none;
 }
 
 

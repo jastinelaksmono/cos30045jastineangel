@@ -44,10 +44,12 @@
                     <img src="images/family_arrive_destination.png" class="contentPic" alt="family_arrive_destination">
                 </div>
 
-                <!-- Chart -->
+                 <!-- Middle container of the sub container-->
                 <div class="middleContainer">
                     <div class="pageTitle">Resident Migrants</div>
                     <div class="chartTitle">Evolution of International Migrants in Top 10 Countries in 2020</div>
+                    
+                     <!-- Display Stacked Area Chart-->
                     <div id="chartContainer">
                         <div id="chartDesc"></div>
                     </div>
@@ -59,6 +61,8 @@
                 </div>
                 <div class="filterSpace">
                     <div class="filterContainer">
+
+                        <!-- Year selection -->
                         <h4 class="filterTitle">
                             <div>Select a year</div>
                             <div class="mandatory">*</div>
@@ -80,6 +84,7 @@
                             </div>
                         </div>
 
+                         <!-- Gender selection -->
                         <div id="gender">
                             <h4 class="filterTitle">Gender<div class="mandatory">*</div></h4>
                             <table id="genderContainer">
@@ -102,28 +107,7 @@
                             </table>
                         </div>
 
-                        <!--
-                            <div id="dpOrigin">
-                                <h4 class="filterTitle">
-                                    <div>Select an origin country</div>
-                                </h4>
-                                <div class="dropdown">
-                                    <button class="dropbtn">
-                                        <div id="originSelection">Year selection</div>
-                                        <img src ="images/dropdown.png" id="dropdownIcon" alt="dropdown" mask="url(#mask)">
-                                    </button>
-                                    <div class="dropdown-content">
-                                        <a href="#" id="None" class="topDropdown">None</a>
-                                        <a href="#" id="India">India</a>
-                                        <a href="#" id="Mexico">Mexico</a>
-                                        <a href="#" id="China">China</a>
-                                        <a href="#" id="Arab">Syrian Arab Republic</a>
-                                        <a href="#" id="Bangladesh" class="lastDropdown">Bangladesh</a>
-                                    </div>
-                                </div>
-                            </div>
-                        -->
-
+                         <!-- Sort selection -->
                         <div id="sort">
                             <h4 class="filterTitle">Sort</h4>
                             <table id="genderContainer">
@@ -138,6 +122,7 @@
                             </table>
                         </div>
 
+                         <!-- Show origin checkbox for year 2020 -->
                         <div id="datapoints">
                             <input type="checkbox" id="checkboxContainer">
                             <label for="checboxContainer" id="checkboxLabel">
@@ -145,7 +130,7 @@
                             </label>
                         </div>
 
-
+                         <!-- Apply filter button -->
                         <div class = "applyContainer">
                             <button id="apply">Apply</button>
                         </div>

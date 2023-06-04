@@ -20,6 +20,7 @@ let currentKey = "";
 let colorRange = ['#ffe586','#ffd125','#ff9d67','#ff813c','#ff5e82','#ff305f','#d52c76','#ac225e','#a74eca','#8432a5'];
 var getOrigin = ""; 
 
+/** Get the origin countries according to the country hovered (available only for year 2020) */
 function findOriginCountries(country){
     d3.csv("https://raw.githubusercontent.com/jastinelaksmono/cos30045jastineangel/main/csvData/top3origin-countries.csv")
     .then(function(data){
@@ -37,6 +38,7 @@ function findOriginCountries(country){
     });
 }
 
+/** Search all year data and draw the grapgh of resident migrants in stacked area chart */
 function findDataAllYear()
 {
     d3.csv("https://raw.githubusercontent.com/jastinelaksmono/cos30045jastineangel/main/csvData/destinationAllYear.csv")
@@ -82,14 +84,6 @@ function findDataAllYear()
                         return d.year;
                     })])
                     .range([0, width]);
-        
-        let num = 0;
-        /*
-        yScale.domain([0,d3.max(data, function(d){
-            num += +d['USA'];
-            return num;
-        })]);
-        */
 
         // create a tooltip
         const tooltip = svg.append("text")
@@ -99,10 +93,10 @@ function findDataAllYear()
                             .style("font-family", "OpenSansBold")
                             .style("font-size", "5vw");
         
-        const datapoint = svg.append("g");
-        const linepoint = svg;
+        const datapoint = svg.append("g");  // the cirlce dot point
+        const linepoint = svg;              // the line for the range of the migrants number
 
-        // Three function that change the tooltip when user hover / move / leave a cell
+        //hover on the area of a country in stacked area chart
         const mouseover = function(event,d) {
             tooltip.style("opacity", 1);
 
@@ -150,6 +144,7 @@ function findDataAllYear()
                 })
                 .attr("class", "axis");
             
+            //make the circke dot point visible
             datapoint.style("opacity", 1);
             
             linepoint.append("g")
@@ -164,11 +159,15 @@ function findDataAllYear()
             linepoint.style("opacity", 1);
         
         }
+
+        //change the tooltip color of country's name on mouse move
         const mousemove = function(event,d,i) {
             var grp = d.key
             tooltip.text(grp)
                     .attr("fill", color(d.key))
         }
+
+        // fade the unhovered country's stacked area
         const mouseleave = function(event,d) {
             tooltip.style("opacity", 0);
             d3.selectAll("path").style("opacity", 1);
@@ -221,16 +220,17 @@ function findDataAllYear()
     });
 }
 
-
+/** search data on a certain year, gender, origin, and sort type for bar/stacked bar chart*/
 function findDataOnYear()
 {
-    var dataset = [];
+    var dataset = [];       //get the filtered dataset of selected attributs
     var subgroups = [];
     var colors = [];
 
     d3.csv("https://raw.githubusercontent.com/jastinelaksmono/cos30045jastineangel/main/csvData/destinationFull.csv")
     .then(function(data){
         
+        //filter gender attributes to the retieved data
         switch(getGender)
         {
             case "male":
@@ -270,6 +270,8 @@ function findDataOnYear()
                 break;
         }
         
+
+        //apply sort to the dataset filtered
         if(getSortType == "asc"){
             if(getGender=="combined"){
                 dataset.sort(function (a,b) {                    
@@ -293,6 +295,7 @@ function findDataOnYear()
             }
         }
 
+        //re-scale the x width range
         xScale = d3.scaleBand()
         //.range([0, width*1.5]) //larger bar width
         .domain(getCountries(dataset))
@@ -305,6 +308,7 @@ function findDataOnYear()
     
 }
 
+/** Draw the chart for the bar/stacked bar chart using the passed dataset that has been filtered */
 function drawChart(subgroups, dataset, colors)
 {    
     //draw x axis
@@ -387,6 +391,7 @@ function drawChart(subgroups, dataset, colors)
                 .style("top", (event.y)/2 + "px")
       }
 
+    //hide the tooltip
     const mouseleave = function(event,d) {
         tooltip.style("opacity", 0)
         d3.select(this)
@@ -435,6 +440,8 @@ function drawChart(subgroups, dataset, colors)
         .ease(d3.easeCircleIn);
 }
 
+
+/** match the color according to the lowest to highest amount of migrants and vice versa */
 function matchColors(i)
 {   
     if (getSortType == "asc")
@@ -445,6 +452,9 @@ function matchColors(i)
     }
 }
 
+/** Apply selected attributes to filter the dataset, set up the svg canvas, 
+ * and trigger functions to get the filtered dataset to draw and display chart
+ */
 function apply()
 {
     //rotate the dropdown icon on hover
@@ -468,8 +478,10 @@ function apply()
     .domain([0, 55000000])
     .range([ height, 0 ]);
 
+    //apply button
     var apply = d3.select("#apply");
 
+    // apply button on click to get the selected attributes 
     apply.on("click", function(){
         if((getYear != "" && getGender != "") || getYear == "All"){
             svg.selectAll("g")
@@ -492,6 +504,7 @@ function apply()
     })
 }
 
+/** Select the year that is clicked by the user */
 function selectYear()
 {
     //d3.select("#datapoints").style("visibility","hidden");
@@ -507,6 +520,9 @@ function selectYear()
     });  
 }
 
+/** apply click function to all year when selected to be activated
+ * and set up the filtered that is needed / not needed to be displayed
+ */
 function callYear(year){
     d3.select("#y" + year).on("click", function(){
         getYear = year;
@@ -515,6 +531,7 @@ function callYear(year){
     }); 
 }
 
+/** Hide gender, sort, and origin attributes according to the selected year */
 function hideSomeFilters(hide)
 {
     var gender = d3.select("#gender");
@@ -535,6 +552,7 @@ function hideSomeFilters(hide)
     }
 }
 
+/** Get all the countries from the dataset */
 function getCountries(dataset){
     var countries = [];
     for(i=0; i<dataset.length; i++){
@@ -543,6 +561,9 @@ function getCountries(dataset){
     return countries;
 }
 
+/** Vustomise dropdown setting to be functioned to select
+ * and display year
+ */
 function dropdownSetting(parent)
 {
     d3.select(parent + ".dropbtn")
@@ -561,6 +582,7 @@ function dropdownSetting(parent)
         });
 }
 
+/** Set the selected gender to be applied in the bar/stacked bar chart */
 function setGender(gender)
 {
     var button = d3.select("#" + gender);
@@ -584,20 +606,10 @@ function setGender(gender)
         }
     }
 
-    setOrigin();
-
-    /*
-    var origin = d3.select("#dpOrigin");
-    if(getYear=="2020" && getGender == "total"){
-        origin.style("visibility","visible");
-        dropdownSetting("#dpOrigin .dropdown ");
-        callOrigin();
-    }else{
-        origin.style("visibility","hidden");
-    }
-    */
+    setOrigin(); // set the origin checkbox to be displayed or not
 }
 
+/** Set the visibility of the orgigin filter attribute */
 function setOrigin(){
     if(getYear=="2020" && getGender == "total"){
         d3.select("#datapoints").style("visibility","visible");
@@ -606,22 +618,10 @@ function setOrigin(){
     }
 }
 
-/*
-function callOrigin(){
-    var originCountries = ["None", "India", "Mexico", "China", "Arab", "Bangladesh"];
-    originCountries.forEach(country => {
-        d3.select("#"+country).on("click", function(){
-            d3.select("#originSelection")
-                .text(country)
-                .style("color", "#08CCD4");
-            d3.select("#dpOrigin .dropdown .dropbtn")
-                .style("border-color", "#08CCD4");
-            getOrigin = country;
-        }); 
-    });
-}
-*/
 
+/** Set the sort type based on selected button,
+ * either ascending or descending
+ */
 function setSort(type)
 {
     var button = d3.select("#" + type);
@@ -654,9 +654,10 @@ function setSort(type)
         }
     }
 
-    setOrigin();
+    setOrigin(); // set the origin checkbox to be displayed or not
 }
 
+/** Change the selected year view in the dropdown year field*/
 function changeCurrentYear(year){
 
     d3.select("#yearSelection")
@@ -668,7 +669,7 @@ function changeCurrentYear(year){
     setOrigin();
 }
 
-
+/** Expand the filter container to be sliding left (in) and right(out) */
 function expandableFilter()
 {
     var expandSign = d3.select("#expandSign");
@@ -704,6 +705,9 @@ function expandableFilter()
     });
 }
 
+/** Onload window trigger functions,
+ * showing the stacked bar chart on th first time 
+ */
 async function init() {
     changeCurrentYear("All");
     hideSomeFilters(true);
